@@ -24,3 +24,4 @@ with open("msg.txt", "r") as f:
 
 msg.attach(MIMEText(body, "plain"))
 
+filename = 'pic.png'
