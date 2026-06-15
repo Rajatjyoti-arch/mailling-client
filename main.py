@@ -1,2 +1,3 @@
-# Main entry point for the mailing client
-print("Mailing client starting...")
+import smtplib
+
+server = smtplib.SMTP("smtp.gmail.com", 587)
