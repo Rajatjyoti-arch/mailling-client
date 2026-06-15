@@ -4,4 +4,7 @@ server = smtplib.SMTP("smtp.gmail.com", 25)
 
 server.ehlo()
 
-with
+with open("accounts.txt") as f:
+    accounts = f.readlines()
+
+server.login  
