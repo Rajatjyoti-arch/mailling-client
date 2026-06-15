@@ -39,3 +39,5 @@ text = msg.as_string()
 
 server.sendmail(email, 'ghostriley597@gmail.com', text)
 server.quit()
+
+print('sent')
