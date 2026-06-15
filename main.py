@@ -19,4 +19,8 @@ msg['From'] = 'cyanide'
 msg['To'] = 'ghostriley597@gmail.com'
 msg['Subject'] = 'Test'
 
+with open("msg.txt", "r") as f:
+    body = f.read()
+
+msg.attach(MIMEText(body, "plain"))
 
