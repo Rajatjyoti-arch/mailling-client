@@ -5,7 +5,8 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 
 server = smtplib.SMTP("smtp.gmail.com", 587)
-
+server.ehlo()
+server.starttls()
 server.ehlo()
 
 with open("accounts.txt", "r") as f:
@@ -25,10 +26,9 @@ with open("msg.txt", "r") as f:
 msg.attach(MIMEText(body, "plain"))
 
 filename = 'pic.png'
-attach = open(filename, "rb")
-
-p = MIMEBase('application', 'octet-stream')
-p.set_payload(attach.read())
+with open(filename, "rb") as attach:
+    p = MIMEBase('application', 'octet-stream')
+    p.set_payload(attach.read())
 
 encoders.encode_base64(p)
 p.add_header("Content-Disposition", f"attachment; filename= {filename}")
@@ -38,3 +38,5 @@ msg.attach(p)
 text = msg.as_string()
 
 server.sendmail(email, 'ghostriley597@gmail.com', text)
+server.quit()
+
