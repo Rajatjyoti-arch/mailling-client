@@ -25,3 +25,14 @@ with open("msg.txt", "r") as f:
 msg.attach(MIMEText(body, "plain"))
 
 filename = 'pic.png'
+attach = open(filename, "rb")
+
+p = MIMEBase('application', 'octet-stream')
+p.set_payload(attach.read())
+
+encoders.encode_base64(p)
+p.add_header("Content-Disposition", f"attachment; filename= {filename}")
+
+msg.attach(p)
+
+text = msg.as_string()
