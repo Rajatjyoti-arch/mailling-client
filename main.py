@@ -1,15 +1,12 @@
 import smtplib
 
-# Recommended port for TLS is 587 (port 25 is often blocked by ISPs/firewalls)
 server = smtplib.SMTP("smtp.gmail.com", 587)
 server.ehlo()
-server.starttls() # Secure the connection
+server.starttls() 
 server.ehlo()
 
-# Load credentials from accounts.txt (which is ignored by Git to keep them hidden)
 try:
     with open("accounts.txt", "r") as f:
-        # Read lines and strip any surrounding whitespace/newlines
         email = f.readline().strip()
         password = f.readline().strip()
 
