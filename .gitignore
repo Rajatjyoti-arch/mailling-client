@@ -111,3 +111,7 @@ venv.bak/
 # Auto-push script files
 auto_push.sh
 auto_push.log
+
+# Credentials and sensitive accounts files
+accounts.txt
+
