@@ -15,3 +15,5 @@ with open("accounts.txt", "r") as f:
 server.login(email, password)
 
 msg = MIMEMultipart()
+msg['From'] = 'cyanide'
+msg['To'] = ''
