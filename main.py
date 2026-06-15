@@ -16,4 +16,7 @@ server.login(email, password)
 
 msg = MIMEMultipart()
 msg['From'] = 'cyanide'
-msg['To'] = ''
+msg['To'] = 'ghostriley597@gmail.com'
+msg['Subject'] = 'Test'
+
+
