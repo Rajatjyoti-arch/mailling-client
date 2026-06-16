@@ -12,12 +12,13 @@ server.ehlo()
 with open("accounts.txt", "r") as f:
     email = f.readline().strip()
     password = f.readline().strip()
+    receiver_email = f.readline().strip()
 
 server.login(email, password)
 
 msg = MIMEMultipart()
 msg['From'] = 'cyanide'
-msg['To'] = 'ghostriley597@gmail.com'
+msg['To'] = receiver_email
 msg['Subject'] = 'Test'
 
 with open("msg.txt", "r") as f:
@@ -37,7 +38,7 @@ msg.attach(p)
 
 text = msg.as_string()
 
-server.sendmail(email, 'ghostriley597@gmail.com', text)
+server.sendmail(email, receiver_email, text)
 server.quit()
 
 print('sent')
